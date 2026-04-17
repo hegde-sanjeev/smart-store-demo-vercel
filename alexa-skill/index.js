@@ -6,7 +6,7 @@ const axios = require('axios');
 // Configure this to match the hardcoded session ID from app/page.tsx
 const KIOSK_SESSION_ID = 'kiosk-session-001';
 // The local Next.js endpoint
-const NEXTJS_API_ENDPOINT = 'http://127.0.0.1:3000/api/voice-search';
+const NEXTJS_API_ENDPOINT = 'https://smart-store-demo-vercel.vercel.app/api/voice-search';
 
 const LaunchRequestHandler = {
     canHandle(handlerInput) {
