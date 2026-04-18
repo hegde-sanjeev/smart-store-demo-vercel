@@ -1,5 +1,5 @@
 'use client';
-
+import StoreMap from '@/components/StoreMap';
 import { useState, useEffect } from 'react';
 import { useSearchParams } from 'next/navigation';
 import { LucideMapPin, LucideBellRing, LucideCheckCircle, LucideChevronLeft } from 'lucide-react';
@@ -110,25 +110,7 @@ export default function MobileProductPage({ params }: { params: { id: string } }
           </div>
         </div>
 
-        <div className="mb-6">
-          <h3 className="text-sm font-semibold text-slate-400 uppercase tracking-widest mb-4">Store Map</h3>
-          <div className="relative w-full aspect-video bg-slate-900 rounded-2xl border border-white/10 overflow-hidden shadow-inner">
-            <svg width="100%" height="100%" viewBox="0 0 100 100" preserveAspectRatio="none" className="absolute inset-0 opacity-20">
-              <rect x="10" y="10" width="20" height="80" rx="2" fill="currentColor" />
-              <rect x="40" y="10" width="20" height="80" rx="2" fill="currentColor" />
-              <rect x="70" y="10" width="20" height="80" rx="2" fill="currentColor" />
-            </svg>
-            <div className="absolute inset-0 pointer-events-none" style={{ backgroundImage: 'radial-gradient(circle at 50% 50%, rgba(255,255,255,0.05) 1px, transparent 1px)', backgroundSize: '20px 20px' }}></div>
-            
-            <div 
-              className="absolute w-6 h-6 -ml-3 -mt-3 flex items-center justify-center"
-              style={{ left: `\${product.location.x}%`, top: `\${product.location.y}%` }}
-            >
-              <div className="absolute inset-0 rounded-full bg-blue-500 animate-ping opacity-75"></div>
-              <div className="relative w-3 h-3 rounded-full bg-blue-500 border-2 border-white"></div>
-            </div>
-          </div>
-        </div>
+        <StoreMap aisle={product.location.aisle} row={product.location.row} />
       </main>
 
       <div className="fixed bottom-0 left-0 right-0 p-5 bg-gradient-to-t from-slate-950 via-slate-950 to-transparent z-50">
