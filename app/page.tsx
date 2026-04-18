@@ -12,7 +12,7 @@ interface Product {
 const SESSION_ID = 'kiosk-session-001';
 
 const CAT_ICONS: Record<string, string> = {
-  Shoes: '👟', Apparel: '👕', Electronics: '⌚', Accessories: '🥤'
+  Sports: '⚽', Clothing: '👕', Electronics: '⌚', Home & Garden: '🛋️', Produce: '🍱', Bakery: '🧁', Dairy & Chilled: '🧈', Pharmacy: '💊'
 };
 
 function ProductModal({ product, onClose }: { product: Product; onClose: () => void }) {
