@@ -110,7 +110,7 @@ export default function MobileProductPage({ params }: { params: { id: string } }
           </div>
         </div>
 
-        <StoreMap aisle={product.location.aisle} row={product.location.row} />
+        <StoreMap aisle={product.location.aisle} />
       </main>
 
       <div className="fixed bottom-0 left-0 right-0 p-5 bg-gradient-to-t from-slate-950 via-slate-950 to-transparent z-50">
