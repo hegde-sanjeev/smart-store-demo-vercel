@@ -134,9 +134,9 @@ export default function StoreMap({ aisle, row = 1 }: StoreMapProps) {
           <circle cx="160" cy="186" r="2" fill="#60a5fa" />
 
           {/* Labels */}
-          <rect x={targetX + 6} y={targetY - 12} width="48" height="16" rx="2" fill="#0f2d1a" stroke="#34d399" strokeWidth="0.7" />
+          <rect x={targetX + 6} y={targetY - 12} width="78" height="16" rx="2" fill="#0f2d1a" stroke="#34d399" strokeWidth="0.7" />
           <text x={targetX + 30} y={targetY - 4} textAnchor="middle" fill="#34d399" fontSize="5.5" fontWeight="500">
-            Product here · {aisle.toUpperCase()} · Row - · {row}
+            Product here · {aisle.toUpperCase()} · Row {row}
           </text>
 
           <rect x="140" y="173" width="40" height="12" rx="2" fill="#0c1d3a" stroke="#60a5fa" strokeWidth="0.7" />
