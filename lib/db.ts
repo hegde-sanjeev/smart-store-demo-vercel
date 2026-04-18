@@ -8,7 +8,7 @@ export interface Product {
   category: string;
   image: string;
   description: string;
-  location: { x: number; y: number; aisle: string };
+  location: { x: number; y: number; aisle: string; row?: number };
 }
 
 export interface Session {
