@@ -28,15 +28,25 @@ function buildRoutePath(
 }
 
 interface StoreMapProps {
-  aisle: string;       // e.g. "C"
-  row?: number;        // e.g. 4 — used for display
+  aisle: string;      // e.g. 4 — used for display
 }
+// Parse "C4" → { section: "C", row: 4 }
+function parseAisle(aisle: string): { section: string; row: number } {
+  const match = aisle.match(/^([A-Za-z]+)(\d+)$/);
+  if (!match) return { section: aisle, row: 1 };
+  return { section: match[1].toUpperCase(), row: parseInt(match[2], 10) };
+}
+export default function StoreMap({ aisle }: StoreMapProps) {
+  const { section, row } = parseAisle(aisle);
+  const sectionConfig = AISLE_MAP[section] ?? SECTIONS[0];
 
-export default function StoreMap({ aisle, row = 1 }: StoreMapProps) {
-  const section = AISLE_MAP[aisle.toUpperCase()] ?? SECTIONS[0];
-  // Target = center of the section rect
-  const targetX = section.x + section.w / 2;
-  const targetY = section.y + section.h / 2;
+  // Offset the target X within the section based on row number
+  // Assumes up to 5 rows per section, spaced evenly across the section width
+  const MAX_ROWS = 5;
+  const rowFraction = (row - 1) / (MAX_ROWS - 1); // 0.0 → 1.0
+  const targetX = sectionConfig.x + sectionConfig.w * 0.15 + sectionConfig.w * 0.7 * rowFraction;
+  const targetY = sectionConfig.y + sectionConfig.h / 2;
+
   const routeD = buildRoutePath(targetX, targetY);
 
   const pathRef = useRef<SVGPathElement>(null);
@@ -136,7 +146,7 @@ export default function StoreMap({ aisle, row = 1 }: StoreMapProps) {
           {/* Labels */}
           <rect x={targetX + 6} y={targetY - 12} width="78" height="16" rx="2" fill="#0f2d1a" stroke="#34d399" strokeWidth="0.7" />
           <text x={targetX + 40} y={targetY - 2} textAnchor="middle" fill="#34d399" fontSize="5.5" fontWeight="500">
-            Product here · {aisle.toUpperCase()} · Row {row}
+            Product here · {aisle.toUpperCase()}
           </text>
 
           <rect x="140" y="173" width="40" height="12" rx="2" fill="#0c1d3a" stroke="#60a5fa" strokeWidth="0.7" />
