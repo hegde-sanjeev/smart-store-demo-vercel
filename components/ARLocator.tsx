@@ -61,17 +61,16 @@ export default function ARLocator({ productName, aisle, location }: ARLocatorPro
 
   // ── Cleanup ───────────────────────────────────────────────────────────────
   const cleanup = useCallback(() => {
-    cancelAnimationFrame(animFrameRef.current);
-    if (streamRef.current) {
-      streamRef.current.getTracks().forEach(t => t.stop());
-      streamRef.current = null;
-    }
-    window.addEventListener('deviceorientation', handleOrientation, true);
+  cancelAnimationFrame(animFrameRef.current);
 
-if ('ondeviceorientationabsolute' in window) {
-  window.addEventListener('deviceorientationabsolute', handleOrientation, true);
-}
-  }, []);
+  if (streamRef.current) {
+    streamRef.current.getTracks().forEach(t => t.stop());
+    streamRef.current = null;
+  }
+
+  window.removeEventListener('deviceorientation', handleOrientation, true);
+  window.removeEventListener('deviceorientationabsolute', handleOrientation, true);
+}, []);
 
   useEffect(() => () => cleanup(), [cleanup]);
 
@@ -79,14 +78,16 @@ if ('ondeviceorientationabsolute' in window) {
   function handleOrientation(e: DeviceOrientationEvent) {
   let heading: number | null = null;
 
-  // iPhone Safari
-  if ((e as any).webkitCompassHeading != null) {
-    heading = (e as any).webkitCompassHeading;
-  }
+  const webkitHeading = (e as any).webkitCompassHeading;
+  const webkitAccuracy = (e as any).webkitCompassAccuracy;
 
-  // Standard Android / Chrome
-  else if (e.alpha != null) {
-    heading = (360 - e.alpha) % 360;
+  if (
+    typeof webkitHeading === 'number' &&
+    (webkitAccuracy == null || webkitAccuracy < 50)
+  ) {
+    heading = webkitHeading;
+  } else if (typeof e.alpha === 'number') {
+    heading = (360 - e.alpha + 360) % 360;
   }
 
   if (heading != null && !Number.isNaN(heading)) {
@@ -183,6 +184,18 @@ if ('ondeviceorientationabsolute' in window) {
   useEffect(() => { compassHeadingRef.current = compassHeading; }, [compassHeading]);
   useEffect(() => { storeBearingRef.current   = storeBearing;   }, [storeBearing]);
 
+  useEffect(() => {
+  if (arState === 'calibrating') {
+    const t = setTimeout(() => {
+      if (compassHeading == null) {
+        setCompassHeading(0);
+      }
+    }, 2500);
+
+    return () => clearTimeout(t);
+  }
+}, [arState, compassHeading]);
+  
   // ── Draw overlay on canvas ────────────────────────────────────────────────
   function drawOverlay(ctx: CanvasRenderingContext2D, w: number, h: number, angleDiff: number) {
     const cx = w / 2;
@@ -332,7 +345,11 @@ if ('ondeviceorientationabsolute' in window) {
   }
 
   // ── Open/close ────────────────────────────────────────────────────────────
-  const openAR = () => { setShowAR(true); requestCamera(); };
+  const openAR = async () => {
+  setShowAR(true);
+  await requestOrientation();
+  await requestCamera();
+};
   const closeAR = () => {
     cleanup();
     setShowAR(false);
