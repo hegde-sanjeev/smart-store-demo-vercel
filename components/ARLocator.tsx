@@ -127,8 +127,11 @@ if ('ondeviceorientationabsolute' in window) {
       }
     } catch { /* non-iOS — no permission API needed */ }
 
-    window.addEventListener('deviceorientationabsolute', handleOrientation as EventListener, true);
-    window.addEventListener('deviceorientation',         handleOrientation as EventListener, true);
+    window.addEventListener('deviceorientation', handleOrientation, true);
+
+if ('ondeviceorientationabsolute' in window) {
+  window.addEventListener('deviceorientationabsolute', handleOrientation, true);
+}
     setArState('calibrating');
   };
 
