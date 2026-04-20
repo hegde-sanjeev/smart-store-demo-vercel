@@ -1,4 +1,5 @@
 'use client';
+import ARLocator from '@/components/ARLocator';
 import StoreMap from '@/components/StoreMap';
 import { useState, useEffect } from 'react';
 import { useSearchParams } from 'next/navigation';
@@ -111,6 +112,13 @@ export default function MobileProductPage({ params }: { params: { id: string } }
         </div>
 
         <StoreMap aisle={product.location.aisle} />
+        <div className="mb-6">
+  <ARLocator
+    productName={product.name}
+    aisle={product.location.aisle}
+    location={{ x: product.location.x, y: product.location.y }}
+  />
+</div>
       </main>
 
       <div className="fixed bottom-0 left-0 right-0 p-5 bg-gradient-to-t from-slate-950 via-slate-950 to-transparent z-50">
