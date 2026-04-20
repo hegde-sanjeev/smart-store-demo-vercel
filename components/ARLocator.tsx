@@ -66,18 +66,33 @@ export default function ARLocator({ productName, aisle, location }: ARLocatorPro
       streamRef.current.getTracks().forEach(t => t.stop());
       streamRef.current = null;
     }
-    window.removeEventListener('deviceorientationabsolute', handleOrientation as EventListener);
-    window.removeEventListener('deviceorientation',         handleOrientation as EventListener);
+    window.addEventListener('deviceorientation', handleOrientation, true);
+
+if ('ondeviceorientationabsolute' in window) {
+  window.addEventListener('deviceorientationabsolute', handleOrientation, true);
+}
   }, []);
 
   useEffect(() => () => cleanup(), [cleanup]);
 
   // ── Orientation handler ───────────────────────────────────────────────────
   function handleOrientation(e: DeviceOrientationEvent) {
-    const heading = (e as any).webkitCompassHeading   // iOS
-      ?? (e.absolute && e.alpha != null ? (360 - e.alpha) % 360 : null);
-    if (heading != null) setCompassHeading(heading);
+  let heading: number | null = null;
+
+  // iPhone Safari
+  if ((e as any).webkitCompassHeading != null) {
+    heading = (e as any).webkitCompassHeading;
   }
+
+  // Standard Android / Chrome
+  else if (e.alpha != null) {
+    heading = (360 - e.alpha) % 360;
+  }
+
+  if (heading != null && !Number.isNaN(heading)) {
+    setCompassHeading(heading);
+  }
+}
 
   // ── Request camera ────────────────────────────────────────────────────────
   const requestCamera = async () => {
