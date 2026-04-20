@@ -73,12 +73,9 @@ export default function MobileProductPage({ params }: { params: { id: string } }
   return (
     <div className="min-h-screen bg-slate-950 text-slate-200 font-sans selection:bg-blue-500/30">
       <header className="fixed top-0 left-0 right-0 z-50 p-4 bg-slate-950/80 backdrop-blur-md border-b border-white/5 flex items-center gap-4">
-        <div className="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center">
-          <LucideChevronLeft size={20} className="text-slate-300" />
-        </div>
         <div>
           <p className="text-xs font-semibold text-blue-400 uppercase tracking-widest">{product.category}</p>
-          <h1 className="text-sm font-bold text-white truncate max-w-[200px]">{product.name}</h1>
+          <h1 className="text-sm font-bold text-white truncate max-w-[300px]">{product.name}</h1>
         </div>
       </header>
 
