@@ -134,7 +134,7 @@ const DEFAULT_PRODUCTS: Product[] = [
     name: "Apple AirPods Pro (2nd Gen)",
     price: 249,
     category: "Electronics",
-    image: "https://images.unsplash.com/photo-1588423771073-b8903fead714?w=500&auto=format&fit=crop",
+    image: "https://images.unsplash.com/photo-1606741965429-8d76ff50bb2f?w=500&auto=format&fit=crop",
     description: "Rebuilt with the H2 chip for up to 2x more active noise cancellation. Adaptive Transparency, Personalised Spatial Audio, and up to 30 hours total battery life with the MagSafe charging case make these the benchmark for wireless earbuds.",
     location: { x: 12, y: 22, aisle: "A5", row: 5 }
   },
@@ -365,7 +365,7 @@ const DEFAULT_PRODUCTS: Product[] = [
     name: "CAP Barbell 35lb Kettlebell",
     price: 65,
     category: "Sports",
-    image: "https://images.unsplash.com/photo-1517963879433-6ad2a04fea6e?w=500&auto=format&fit=crop",
+    image: "https://images.unsplash.com/photo-1541534741688-6078c6bfb5c5?w=500&auto=format&fit=crop",
     description: "Cast from a single piece of solid iron with a smooth, corrosion-resistant enamel coating and a flat base to prevent rolling. The ergonomic handle is wide enough for two-handed swings and cleans. A foundational piece of equipment for functional fitness training.",
     location: { x: 58, y: 22, aisle: "C5", row: 5 }
   },
@@ -401,7 +401,7 @@ const DEFAULT_PRODUCTS: Product[] = [
     name: "MIPS Road Cycling Helmet",
     price: 89,
     category: "Sports",
-    image: "https://images.unsplash.com/photo-1558618047-3c8c76ca7d13?w=500&auto=format&fit=crop",
+    image: "https://images.unsplash.com/photo-1601971360277-7b4c8aa60894?w=500&auto=format&fit=crop",
     description: "MIPS-equipped for advanced rotational protection, featuring 20 aerodynamic vents, an integrated rear LED, and a BOA fit system for tool-free micro-adjustable sizing. Lightweight at just 285g — comfortable enough to forget you're wearing it on long rides.",
     location: { x: 58, y: 16, aisle: "C2", row: 2 }
   },
@@ -467,7 +467,7 @@ const DEFAULT_PRODUCTS: Product[] = [
     name: "Tower Cerastone 5-Piece Cookware Set",
     price: 179,
     category: "Home & Garden",
-    image: "https://images.unsplash.com/photo-1584990347449-a2d4c2c7e8e6?w=500&auto=format&fit=crop",
+    image: "https://images.unsplash.com/photo-1592156553722-a2335059951a?w=500&auto=format&fit=crop",
     description: "A complete set including a 16cm saucepan, 20cm saucepan, 28cm frying pan, and 24cm casserole with glass lids. The Cerastone forged aluminium body delivers even heat, while the ceramic non-stick coating is PFOA-free and safe for metal utensils.",
     location: { x: 82, y: 20, aisle: "D4", row: 4 }
   },
@@ -512,7 +512,7 @@ const DEFAULT_PRODUCTS: Product[] = [
     name: "Joseph Joseph Nest 9 Prep Set",
     price: 89,
     category: "Home & Garden",
-    image: "https://images.unsplash.com/photo-1556909011-3c79c7bff45a?w=500&auto=format&fit=crop",
+    image: "https://images.unsplash.com/photo-1584990347193-6bebebfeaeee?w=500&auto=format&fit=crop",
     description: "Nine colour-coded mixing bowls, colanders, and sieves that nest together to occupy the footprint of a single bowl. Made from impact-resistant BPA-free polypropylene. The smart design means every item is instantly accessible without digging through a cupboard.",
     location: { x: 84, y: 14, aisle: "D1", row: 1 }
   },
@@ -569,7 +569,7 @@ const DEFAULT_PRODUCTS: Product[] = [
     name: "Mixed Cherry Tomatoes 500g",
     price: 2.19,
     category: "Produce",
-    image: "https://images.unsplash.com/photo-1546094096-0df4b3ffc6b0?w=500&auto=format&fit=crop",
+    image: "https://images.unsplash.com/photo-1570543375343-63fe3d67761b?w=500&auto=format&fit=crop",
     description: "A vibrant punnet of vine-ripened red, yellow, and orange cherry tomatoes grown in sun-drenched Spanish greenhouses. Naturally sweet with a satisfying pop of acidity — exceptional raw in salads, roasted whole with olive oil, or scattered over homemade pizza.",
     location: { x: 10, y: 46, aisle: "E3", row: 3 }
   },
@@ -698,7 +698,7 @@ const DEFAULT_PRODUCTS: Product[] = [
     name: "Banana & Walnut Loaf",
     price: 4.99,
     category: "Bakery",
-    image: "https://images.unsplash.com/photo-1587536849024-cb2d816ef4ef?w=500&auto=format&fit=crop",
+    image: "https://images.unsplash.com/photo-1639399517920-10ee1cf4fd31?w=500&auto=format&fit=crop",
     description: "Made with extra-ripe Fairtrade bananas for maximum natural sweetness, folded with toasted California walnuts and a hint of cinnamon. Dense, moist, and perfectly sliceable. Contains no refined sugar — sweetened entirely with date syrup. Exceptional toasted with salted butter.",
     location: { x: 34, y: 48, aisle: "F4", row: 4 }
   },
@@ -764,7 +764,7 @@ const DEFAULT_PRODUCTS: Product[] = [
     name: "Fage Total 0% Greek Yogurt 500g",
     price: 2.79,
     category: "Dairy & Chilled",
-    image: "https://images.unsplash.com/photo-1488477181228-c84c6b8278f9?w=500&auto=format&fit=crop",
+    image: "https://images.unsplash.com/photo-1755752916226-5ccb712e6596?w=500&auto=format&fit=crop",
     description: "The genuine article from Athens: strained through fine cheesecloth to produce a thick, creamy, protein-dense yoghurt with a clean, refreshing tang. 10g of protein per 100g with no added sugar or thickeners. Exceptional with honey and walnuts or as a base for tzatziki.",
     location: { x: 60, y: 42, aisle: "G1", row: 1 }
   },
@@ -884,7 +884,7 @@ const DEFAULT_PRODUCTS: Product[] = [
     name: "Centrum Advance Multivitamin (60 tabs)",
     price: 9.99,
     category: "Pharmacy",
-    image: "https://images.unsplash.com/photo-1550831107-a553ddaafa91?w=500&auto=format&fit=crop",
+    image: "https://images.unsplash.com/photo-1640958898466-b4dd00872fc8?w=500&auto=format&fit=crop",
     description: "A complete daily multivitamin containing 24 micronutrients including vitamins A, C, D, E, K, B-complex, zinc, selenium, and magnesium. Formulated to fill the nutritional gaps in modern diets. One tablet per day with food. Suitable for adults over 18.",
     location: { x: 82, y: 44, aisle: "H2", row: 2 }
   },
@@ -920,7 +920,7 @@ const DEFAULT_PRODUCTS: Product[] = [
     name: "Omega-3 Fish Oil 1000mg (90 caps)",
     price: 11.99,
     category: "Pharmacy",
-    image: "https://images.unsplash.com/photo-1550831107-a553ddaafa91?w=500&auto=format&fit=crop",
+    image: "https://images.unsplash.com/photo-1471864190281-a93a3070b6de?w=500&auto=format&fit=crop",
     description: "High-purity omega-3 from sustainably sourced anchovies and sardines, providing 300mg of combined EPA and DHA per capsule. Supports cardiovascular health, brain function, and joint mobility. Molecularly distilled to remove heavy metals. Enteric-coated to prevent fish aftertaste.",
     location: { x: 82, y: 48, aisle: "H4", row: 4 }
   },
@@ -947,7 +947,7 @@ const DEFAULT_PRODUCTS: Product[] = [
     name: "Solgar Melatonin Sleep Aid 1mg (60 tabs)",
     price: 8.99,
     category: "Pharmacy",
-    image: "https://images.unsplash.com/photo-1550831107-a553ddaafa91?w=500&auto=format&fit=crop",
+    image: "https://images.unsplash.com/photo-1574043948184-144f2ef80fe3?w=500&auto=format&fit=crop",
     description: "A low-dose 1mg melatonin supplement to support natural sleep onset — particularly useful for jet lag and shift work. The slow-dissolve sublingual tablet format allows faster absorption than standard tablets. Vegan, kosher, and free from gluten, wheat, and dairy.",
     location: { x: 84, y: 50, aisle: "H5", row: 5 }
   },
@@ -983,7 +983,7 @@ const DEFAULT_PRODUCTS: Product[] = [
     name: "Floradix Liquid Iron Formula 500ml",
     price: 16.99,
     category: "Pharmacy",
-    image: "https://images.unsplash.com/photo-1550831107-a553ddaafa91?w=500&auto=format&fit=crop",
+    image: "https://images.unsplash.com/photo-1621958180351-126bb5062e57?w=500&auto=format&fit=crop",
     description: "A liquid iron supplement with easily absorbed ferrous gluconate combined with vitamins B2, B6, B12, and C to support red blood cell formation and reduce tiredness and fatigue. A pleasant, fruity flavour with no alcohol, artificial preservatives, or colourings. Suitable for vegetarians.",
     location: { x: 84, y: 44, aisle: "H2", row: 2 }
   }
