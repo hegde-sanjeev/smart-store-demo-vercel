@@ -989,8 +989,40 @@ const DEFAULT_PRODUCTS: Product[] = [
   }
 ];
 
+/**
+ * Interleaves products across categories in a round-robin fashion.
+ * e.g. [Electronics, Clothing, Sports, Electronics, Clothing, Sports, ...]
+ * This ensures mixed-category display rather than grouped-by-category ordering.
+ */
+function interleaveByCategory(products: Product[]): Product[] {
+  const buckets = new Map<string, Product[]>();
+
+  for (const product of products) {
+    if (!buckets.has(product.category)) {
+      buckets.set(product.category, []);
+    }
+    buckets.get(product.category)!.push(product);
+  }
+
+  const queues = Array.from(buckets.values());
+  const result: Product[] = [];
+
+  let i = 0;
+  while (result.length < products.length) {
+    const queue = queues[i % queues.length];
+    if (queue.length > 0) {
+      result.push(queue.shift()!);
+    }
+    i++;
+    // Once all queues are exhausted, stop
+    if (queues.every(q => q.length === 0)) break;
+  }
+
+  return result;
+}
+
 const INIT_DB: Database = {
-  products: DEFAULT_PRODUCTS,
+  products: interleaveByCategory(DEFAULT_PRODUCTS),
   sessions: {},
   alerts: []
 };
