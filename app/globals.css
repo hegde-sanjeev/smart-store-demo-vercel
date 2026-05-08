@@ -87,3 +87,34 @@
 ::-webkit-scrollbar-track { background: rgba(255,255,255,0.03); }
 ::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.15); border-radius: 3px; }
 ::-webkit-scrollbar-thumb:hover { background: rgba(255,255,255,0.25); }
+
+* {
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Prevent text selection during touch drag/scroll */
+body {
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+/* Re-allow text selection only inside actual text content */
+p, h1, h2, h3, h4, h5, h6, li, span, a, label,
+input, textarea, [contenteditable] {
+  -webkit-user-select: text;
+  user-select: text;
+}
+
+/* Smooth momentum scrolling on iOS/touch displays */
+.overflow-y-auto,
+.overflow-x-auto,
+.overflow-auto,
+.overflow-scroll {
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Tell the browser: vertical scrolling is fine, don't intercept touches */
+html, body {
+  touch-action: pan-y;
+  overscroll-behavior-y: contain;
+}
