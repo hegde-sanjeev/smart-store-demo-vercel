@@ -13,7 +13,15 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <link rel='preconnect' href='https://fonts.googleapis.com' />
         <link rel='preconnect' href='https://fonts.gstatic.com' crossOrigin='anonymous' />
       </head>
-      <body className='min-h-screen'>{children}</body>
+      <body 
+        className='min-h-screen'
+        style={{
+          touchAction: 'pan-y',
+          userSelect: 'none',
+          WebkitUserSelect: 'none',
+          WebkitOverflowScrolling: 'touch' as any,
+        }}
+        >{children}</body>
     </html>
   );
 }
