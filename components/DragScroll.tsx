@@ -25,7 +25,7 @@ export default function DragScroll() {
       if (!isDown) return;
       e.preventDefault();
       const y = e.pageY - window.scrollY;
-      const walk = (startY - y) * 1.5; // 1.5 = scroll speed multiplier
+      const walk = (startY - y) * 3; // 1.5 = scroll speed multiplier
       window.scrollTo({ top: scrollTop + walk });
     };
 
