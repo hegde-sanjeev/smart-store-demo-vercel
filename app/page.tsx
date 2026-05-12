@@ -179,7 +179,7 @@ export default function KioskPage() {
         )}
         <div className="flex items-center gap-5">
           <div className="text-right"><p className="text-2xl font-bold text-white tabular-nums">{clockTime}</p><p className="text-xs text-gray-400">Session: {SESSION_ID.slice(-3).toUpperCase()}</p></div>
-          <a id="associate-link" href="/associate" className="flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-semibold text-gray-300 hover:text-white transition-colors" style={{ background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.1)' }}>👤 Associate</a>
+          
         </div>
       </header>
 
